@@ -1,4 +1,4 @@
-
+pub mod skeleton
 
 #[cfg(test)]
 mod tests {
