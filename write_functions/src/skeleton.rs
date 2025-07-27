@@ -36,6 +36,10 @@ impl SkeletonDataClump{
 
         param_list.push((name.clone(), data_type.clone()));
     }
+
+    fn change_return_type(&mut self, new_return_type: &String){
+        self.return_type = Some(new_return_type.clone());
+    }
 }
 
 impl EngageCodeOp for SkeletonDataClump{
