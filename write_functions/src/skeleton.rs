@@ -30,6 +30,15 @@ impl EngageCodeOp for SkeletonDataClump{
             _ => (),
         };
 
+        match op{
+            NAME => {},
+            DATATYPE => {},
+            REFERENCE => {},
+            MODIFIER => {},
+            RETURN => {},
+            LIFETIME => {},
+        }
+
         todo!();
     }
     fn create_op(tokens: String, op: AddCodeOp) -> Self{
