@@ -26,6 +26,10 @@ impl SkeletonDataClump{
 
 impl EngageCodeOp for SkeletonDataClump{
     fn add_op(&self, tokens: String, op: AddCodeOp, nested: Nested) -> Self{
+        match nested{
+            _ => (),
+        };
+
         todo!();
     }
     fn create_op(tokens: String, op: AddCodeOp) -> Self{
