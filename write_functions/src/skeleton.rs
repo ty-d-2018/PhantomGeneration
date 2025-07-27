@@ -46,12 +46,24 @@ impl EngageCodeOp for SkeletonDataClump{
     fn add_op(&self, tokens: Vec::<String>, first_op: AddCodeOp, second_op: AddCodeOp) -> Self{
 
         let mut new_skeleton_data: SkeletonDataClump = self.clone();
+        
+        let default_element: String = String::from("Undefined");
+        let token_one: &String = tokens.get(0).unwrap_or(&default_element);
+        let token_two: &String = tokens.get(1).unwrap_or(&default_element);
 
         match first_op{
-            AddCodeOp::NAME => {},
+            AddCodeOp::NAME => {
+                if let AddCodeOp::DATATYPE = second_op{
+                    new_skeleton_data.add_parameter(token_one, token_two);
+                }else{
+                    new_skeleton_data.change_name(token_one);
+                }
+            },
             AddCodeOp::DATATYPE => {},
             AddCodeOp::REFERENCE => {},
-            AddCodeOp::MODIFIER => {},
+            AddCodeOp::MODIFIER => {
+                new_skeleton_data.change_modifier(token_one);
+            },
             AddCodeOp::RETURN => {},
             AddCodeOp::LIFETIME => {},
             AddCodeOp::NONE => {},
