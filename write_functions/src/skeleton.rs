@@ -1,6 +1,6 @@
 use super::code_op::{ AddCodeOp, EngageCodeOp, Nested};
 
-
+#[derive(Clone, Debug)]
 pub struct SkeletonDataClump{
     modifier: Option::<String>,
     name: String,
