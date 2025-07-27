@@ -19,10 +19,13 @@ impl SkeletonDataClump{
             code_block: None,
         }
     }
+    fn change_name(&mut self, new_name: &String){
+        self.name = new_name.clone();
+    }
 }
 
 impl EngageCodeOp for SkeletonDataClump{
-    fn add_op(statement: Self, tokens: String, op: AddCodeOp, nested: Nested) -> Self{
+    fn add_op(&self, tokens: String, op: AddCodeOp, nested: Nested) -> Self{
         todo!();
     }
     fn create_op(tokens: String, op: AddCodeOp) -> Self{
