@@ -10,7 +10,7 @@ pub struct SkeletonDataClump{
 }
 
 impl SkeletonDataClump{
-    pub fn new(name: &String,) -> SkeletonDataClump{
+    pub fn new(name: &String) -> SkeletonDataClump{
         SkeletonDataClump{
             modifier: None,
             name: name.clone(),
