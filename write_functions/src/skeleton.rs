@@ -1,4 +1,4 @@
-use super::code_op::{ AddCodeOp, EngageCodeOp, Nested};
+use super::code_op::{ AddCodeOp, EngageCodeOp };
 
 #[derive(Clone, Debug)]
 pub struct SkeletonDataClump{
@@ -25,23 +25,21 @@ impl SkeletonDataClump{
 }
 
 impl EngageCodeOp for SkeletonDataClump{
-    fn add_op(&self, tokens: String, op: AddCodeOp, nested: Nested) -> Self{
-        match nested{
-            _ => (),
-        };
+    fn add_op(&self, tokens: Vec::<String>, first_op: AddCodeOp, second_op: AddCodeOp) -> Self{
 
-        match op{
-            NAME => {},
-            DATATYPE => {},
-            REFERENCE => {},
-            MODIFIER => {},
-            RETURN => {},
-            LIFETIME => {},
+        match first_op{
+            AddCodeOp::NAME => {},
+            AddCodeOp::DATATYPE => {},
+            AddCodeOp::REFERENCE => {},
+            AddCodeOp::MODIFIER => {},
+            AddCodeOp::RETURN => {},
+            AddCodeOp::LIFETIME => {},
+            AddCodeOp::NONE => {},
         }
 
         todo!();
     }
-    fn create_op(tokens: String, op: AddCodeOp) -> Self{
+    fn create_op(tokens: Vec::<String>, first_op: AddCodeOp, second_op: AddCodeOp) -> Self{
         todo!();
     }
 }

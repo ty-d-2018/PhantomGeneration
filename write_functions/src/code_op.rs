@@ -7,15 +7,10 @@ pub enum AddCodeOp{
     MODIFIER,
     RETURN,
     LIFETIME,
-}
-
-pub enum Nested{
-    Empty,
-    Parameter,
-    Block,
+    NONE,
 }
 
 pub trait EngageCodeOp{
-    fn add_op(&self, tokens: String, op: AddCodeOp, nested: Nested) -> Self;
-    fn create_op(tokens: String, op: AddCodeOp) -> Self;
+    fn add_op(&self, tokens: Vec::<String>, first_op: AddCodeOp, second_op: AddCodeOp) -> Self;
+    fn create_op(tokens: Vec::<String>, op: AddCodeOp, second_op: AddCodeOp) -> Self;
 }
