@@ -70,3 +70,9 @@ impl Iterator for MarkAlphabet{
         mark_alpha
     }
 }
+
+impl Marks{
+    pub fn get_alphabet_iter() -> MarkAlphabet{
+        MarkAlphabet::new()
+    }
+}
