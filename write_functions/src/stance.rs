@@ -16,7 +16,11 @@ pub enum Marks{
     Modifier,
     Name,
     DataType,
-    Operator,
+    //Compound Type is expected like (u32, u32) or (x: u32, y: u32)
+    //If single u32 or (x: u32)
+    Compound,
+    OptionalGeneric,
+    Block,
 }
 
 
@@ -49,11 +53,12 @@ pub mod MarkIterator{
             let mut map: HashMap = HashMap::new();
             for i in 0..max{
                 match i{
-                    0 => map.insert(i, Marks::DataType),
-                    1 => map.insert(i, Marks::Marker),
-                    2 => map.insert(i, Marks::Modifier),
-                    3 => map.insert(i, Marks::Name,),
-                    4 => map.insert(i, Marks::Operator),
+                    0 => map.insert(i, Marks::Block),
+                    1 => map.insert(i, Marks::DataType),
+                    2 => map.insert(i, Marks::Marker),
+                    3 => map.insert(i, Marks::Modifier),
+                    4 => map.insert(i, Marks::Name,),
+                    5 => map.insert(i, Marks::Operator),
                 };
             }
 
@@ -91,6 +96,21 @@ pub mod MarkIterator{
             MarkFunction{
                 
             }
+        }
+ 
+        fn create_order_vec(stops: u32) -> MarkFunction{
+            let mut sequence: Vec::<Marks> = Vec::new();
+
+            sequence.push(Marks::Modifier);
+            sequence.push(Marks::Name);
+            sequence.push(Marks::OptionalGeneric)
+            let parameters: Marks = Marks::Compound; 
+            sequence.push(parameters);
+            let re_type: Marks = Marks::Compound;
+            sequence.push(re_type);
+            sequence.push(Block);
+
+            sequence
         }
     }
 }
