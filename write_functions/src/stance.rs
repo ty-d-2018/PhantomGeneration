@@ -80,4 +80,17 @@ pub mod MarkIterator{
             mark_alpha
         }
     }
+
+    pub struct MarkFunction{
+        order: Vec::<Marks>,
+        count: usize,
+    }
+
+    impl MarkFunction{
+        pub fn new() -> MarkFunction{
+            MarkFunction{
+                
+            }
+        }
+    }
 }
