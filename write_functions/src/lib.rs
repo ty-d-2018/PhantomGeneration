@@ -1,6 +1,7 @@
 pub mod skeleton;
 pub mod code_op;
 pub mod op_base;
+pub mod stance;
 
 #[cfg(test)]
 mod tests {
