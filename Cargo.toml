@@ -1,5 +1,5 @@
 
 [workspace]
-members = []
+members = ["represent"]
 
 resolver = "3"
