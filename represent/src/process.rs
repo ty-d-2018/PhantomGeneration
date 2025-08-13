@@ -1,10 +1,10 @@
 
-pub trait Calculate_L_R{
+pub trait CalculateLR{
     type Item;
     type Key;
     type Value;
     //Can combine itself into a new Data
-    type Data;
+    type Data: Combine;
     type Output;
 
     fn set_element(el: &Self::Item) -> Self::Value;
@@ -13,4 +13,8 @@ pub trait Calculate_L_R{
     fn set_data(operator: &mut Self, data: Self::Data) -> Result::<(), ()>;
     fn calculate(&mut self);
     fn get_output(&self) -> Option::<Self::Output>;
+}
+
+pub trait Combine{
+
 }
