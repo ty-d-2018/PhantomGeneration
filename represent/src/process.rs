@@ -16,5 +16,11 @@ pub trait CalculateLR{
 }
 
 pub trait Combine{
-
+    type Item: Clone;
+    type Element: Clone;
+    
+    fn enclose_primitive(&mut self, el: &Self::Element);
+    fn mesh(a: &Self::Item, b: &Self::Item) -> Self::Item;
+    fn replace_a(a: &Self::Item, b: &Self::Item) -> Self::Item;
+    fn replace_b(a: &Self::Item, b: &Self::Item) -> Self::Item;
 }
