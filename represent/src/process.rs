@@ -5,7 +5,7 @@ pub trait CalculateLR{
     type Value;
     //Can combine itself into a new Data
     type Data: Combine;
-    type Output;
+    type Output: Clone;
 
     fn set_element(el: &Self::Item) -> Self::Value;
     fn element_to_data(operator: &mut Self, key: &Self::Key, element: &Self::Value) -> Self::Data;
@@ -13,6 +13,7 @@ pub trait CalculateLR{
     fn set_data(operator: &mut Self, data: Self::Data) -> Result::<(), ()>;
     fn calculate(&mut self);
     fn get_output(&self) -> Option::<Self::Output>;
+    fn refer_output(&self) -> Option::<&Self::Output>;
 }
 
 pub trait Combine{
